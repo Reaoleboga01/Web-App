@@ -13,3 +13,5 @@ jobs:
 
       - name: Z.ai Code Review
         uses: tarmojussila/zai-code-review@v0.4.1
+        with:
+          ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
