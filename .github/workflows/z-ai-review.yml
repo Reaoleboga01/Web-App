@@ -1,4 +1,4 @@
-name: Z.ai Code Review
+name: AI Code Review
 
 on:
   pull_request:
@@ -7,9 +7,16 @@ on:
 jobs:
   review:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Z.ai Code Review
-        uses: tarmojussila/zai-code-review@v0.4.1
+      - name: Gemini Code Review
+        uses: anc26/gemini-code-review-action@v1
+        with:
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          model: "gemini-1.5-flash"
