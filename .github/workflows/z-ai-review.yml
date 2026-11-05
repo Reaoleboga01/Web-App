@@ -15,4 +15,4 @@ jobs:
         uses: tarmojussila/zai-code-review@v0.4.1
         with:
           ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
-
+          model: "glm-4.7-flash"
